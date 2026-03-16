@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,12 +28,13 @@ import java.io.OutputStream;
 import java.util.List;
 
 public class DataManagementActivity extends AppCompatActivity {
-
-    private static final int REQUEST_CODE_EXPORT = 1;
-    private static final int REQUEST_CODE_IMPORT = 2;
     
     private LoanRepository repository;
     private Gson gson;
+    
+    // 使用新的 Activity Result API
+    private ActivityResultLauncher<Intent> exportLauncher;
+    private ActivityResultLauncher<Intent> importLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,39 @@ public class DataManagementActivity extends AppCompatActivity {
         
         repository = new LoanRepository(getApplication());
         gson = new GsonBuilder().setPrettyPrinting().create();
+        
+        // 注册 Activity Result Launchers
+        exportLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                    Uri uri = result.getData().getData();
+                    if (uri != null) {
+                        exportData(uri);
+                    } else {
+                        finish();
+                    }
+                } else {
+                    finish();
+                }
+            }
+        );
+        
+        importLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
+                    Uri uri = result.getData().getData();
+                    if (uri != null) {
+                        confirmImport(uri);
+                    } else {
+                        finish();
+                    }
+                } else {
+                    finish();
+                }
+            }
+        );
         
         String action = getIntent().getAction();
         if ("EXPORT".equals(action)) {
@@ -64,35 +100,14 @@ public class DataManagementActivity extends AppCompatActivity {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("application/json");
         intent.putExtra(Intent.EXTRA_TITLE, "loan_data_" + System.currentTimeMillis() + ".json");
-        startActivityForResult(intent, REQUEST_CODE_EXPORT);
+        exportLauncher.launch(intent);
     }
     
     private void startImport() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("application/json");
-        startActivityForResult(intent, REQUEST_CODE_IMPORT);
-    }
-    
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        
-        if (resultCode == Activity.RESULT_OK && data != null) {
-            Uri uri = data.getData();
-            if (uri == null) {
-                finish();
-                return;
-            }
-            
-            if (requestCode == REQUEST_CODE_EXPORT) {
-                exportData(uri);
-            } else if (requestCode == REQUEST_CODE_IMPORT) {
-                confirmImport(uri);
-            }
-        } else {
-            finish();
-        }
+        importLauncher.launch(intent);
     }
     
     private void exportData(Uri uri) {
