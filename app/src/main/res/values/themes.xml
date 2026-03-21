@@ -2,6 +2,10 @@
 <resources>
     <!-- Base application theme -->
     <style name="Theme.LoanManager" parent="Theme.Material3.Light">
+        <!-- Enable ActionBar (Material3 disables it by default) -->
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
