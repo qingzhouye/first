@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Base application theme -->
-    <style name="Theme.LoanManager" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Theme.LoanManager" parent="Theme.Material3.Light">
         <!-- Primary brand color -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
@@ -20,7 +20,7 @@
     </style>
     
     <!-- Theme without ActionBar -->
-    <style name="Theme.LoanManager.NoActionBar">
+    <style name="Theme.LoanManager.NoActionBar" parent="Theme.LoanManager">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
