@@ -366,34 +366,38 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnViewSchedule"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
                 android:text="@string/view_schedule"
                 style="@style/SecondaryButton" />
 
-            <Button
-                android:id="@+id/btnMakePayment"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_marginEnd="8dp"
-                android:text="@string/make_payment"
-                style="@style/SuccessButton" />
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
 
-            <Button
-                android:id="@+id/btnDelete"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/delete_loan"
-                style="@style/DangerButton" />
+                <Button
+                    android:id="@+id/btnMakePayment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/make_payment"
+                    style="@style/SuccessButton" />
+
+                <Button
+                    android:id="@+id/btnDelete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/delete_loan"
+                    style="@style/DangerButton" />
+            </LinearLayout>
         </LinearLayout>
 
         <!-- 还款输入框 -->

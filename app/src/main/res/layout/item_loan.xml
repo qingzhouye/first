@@ -30,7 +30,15 @@
             android:textColor="@color/text_primary" />
 
         <TextView
-            android:id="@+id/tvInfo"
+            android:id="@+id/tvRemaining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_xs"
+            android:textSize="@dimen/text_md"
+            android:textColor="@color/text_secondary" />
+
+        <TextView
+            android:id="@+id/tvMonthlyPayment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/spacing_xs"

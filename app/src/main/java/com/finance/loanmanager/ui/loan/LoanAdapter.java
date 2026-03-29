@@ -45,8 +45,8 @@ public class LoanAdapter extends RecyclerView.Adapter<LoanAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         LoanRepository.LoanWithStatus item = loans.get(position);
         holder.tvName.setText(item.loan.getName());
-        holder.tvInfo.setText("剩余: " + NumberFormatUtil.formatCurrency(item.status.getRemainingPrincipal())
-                + " | 月供: " + NumberFormatUtil.formatCurrency(item.status.getNewMonthlyPayment()));
+        holder.tvRemaining.setText("剩余: " + NumberFormatUtil.formatCurrency(item.status.getRemainingPrincipal()));
+        holder.tvMonthlyPayment.setText("月供: " + NumberFormatUtil.formatCurrency(item.status.getNewMonthlyPayment()));
         holder.tvIcon.setText(item.loan.isCreditCard() ? "💳" : "🏦");
         
         if (item.status.isPaidOff()) {
@@ -68,13 +68,15 @@ public class LoanAdapter extends RecyclerView.Adapter<LoanAdapter.ViewHolder> {
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvIcon;
         TextView tvName;
-        TextView tvInfo;
+        TextView tvRemaining;
+        TextView tvMonthlyPayment;
 
         ViewHolder(View itemView) {
             super(itemView);
             tvIcon = itemView.findViewById(R.id.tvIcon);
             tvName = itemView.findViewById(R.id.tvName);
-            tvInfo = itemView.findViewById(R.id.tvInfo);
+            tvRemaining = itemView.findViewById(R.id.tvRemaining);
+            tvMonthlyPayment = itemView.findViewById(R.id.tvMonthlyPayment);
         }
     }
 }

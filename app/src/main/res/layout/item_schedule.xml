@@ -10,61 +10,57 @@
         android:id="@+id/tvMonth"
         android:layout_width="36dp"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
+        android:textSize="9sp"
         android:textColor="@color/text_primary"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        android:gravity="center"
+        android:maxLines="1" />
 
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:textSize="10sp"
+        android:textSize="9sp"
         android:textColor="@color/text_primary"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        android:gravity="center"
+        android:maxLines="1" />
 
     <TextView
         android:id="@+id/tvPayment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="10sp"
+        android:textSize="9sp"
         android:textColor="@color/primary"
-        android:gravity="end"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        android:gravity="center"
+        android:maxLines="1" />
 
     <TextView
         android:id="@+id/tvPrincipal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="10sp"
+        android:textSize="9sp"
         android:textColor="@color/text_secondary"
-        android:gravity="end"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        android:gravity="center"
+        android:maxLines="1" />
 
     <TextView
         android:id="@+id/tvInterest"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="10sp"
+        android:textSize="9sp"
         android:textColor="@color/text_secondary"
-        android:gravity="end"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        android:gravity="center"
+        android:maxLines="1" />
 
     <TextView
         android:id="@+id/tvRemaining"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:textSize="10sp"
+        android:textSize="9sp"
         android:textColor="@color/warning"
-        android:gravity="end"
-        android:maxLines="1"
-        android:ellipsize="end" />
+        android:gravity="center"
+        android:maxLines="1" />
 </LinearLayout>

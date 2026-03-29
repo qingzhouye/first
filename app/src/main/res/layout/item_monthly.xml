@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:textColor="@color/text_primary" />
+        android:textColor="@color/text_primary"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/tvTotal"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:textColor="@color/primary" />
+        android:textColor="@color/primary"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/tvLoans"
@@ -28,5 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textSize="12sp"
-        android:textColor="@color/text_secondary" />
+        android:textColor="@color/text_secondary"
+        android:gravity="center" />
 </LinearLayout>
