@@ -61,7 +61,6 @@ dependencies {
     // Apache POI for XLSX support
     implementation 'org.apache.poi:poi:5.2.5'
     implementation 'org.apache.poi:poi-ooxml:5.2.5'
-    implementation 'org.apache.poi:poi-ooxml-schemas:4.1.2'
     implementation 'org.apache.xmlbeans:xmlbeans:5.1.1'
     implementation 'org.apache.commons:commons-collections4:4.4'
     implementation 'commons-io:commons-io:2.15.1'
